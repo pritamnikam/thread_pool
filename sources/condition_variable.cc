@@ -12,7 +12,7 @@ ConditionVariable::~ConditionVariable() {
 }
 
 void ConditionVariable::Wait(const Mutex& mutex) {
-	pthread_cond_wait(&condition_variable_, &mutex.lock_);
+	pthread_cond_wait(&condition_variable_, (pthread_mutex_t*) &mutex.lock_);
 }
 
 void ConditionVariable::SignalOne() {

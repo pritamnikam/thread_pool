@@ -2,11 +2,11 @@
 CC=g++
 
 # Sources
-SRC=sources/condition_variable.cc \
+SRC=solution.cc                   \
+    sources/condition_variable.cc \
     sources/mutex.cc              \
     sources/thread.cc             \
     sources/thread_pool.cc        \
-    solution.cc                    
 
 # Target executable
 TARGET=solution
@@ -30,7 +30,7 @@ all: $(TARGET)
 
 # Build target
 $(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) $(INCLUDES) -o $(OBJS) $(LFLAGS) $(LIBS)
+	$(CC) $(CFLAGS) $(INCLUDES) $(OBJS) -o $(TARGET) $(LFLAGS) $(LIBS)
 
 # Compilation rule
 .cc.o: $(SRC)
